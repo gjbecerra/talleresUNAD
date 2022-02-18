@@ -1,0 +1,46 @@
+\documentclass{article}
+
+\usepackage[spanish]{babel} % Define el idioma del documento
+
+\usepackage[letterpaper,top=4cm]{geometry} % Ajusta el tamaño del papel y las márgenes
+\usepackage{graphicx,eso-pic} % Utilizado para insertar imágenes en el encabezado y pie de página
+\usepackage{lipsum} % Empleado para generar texto genérico de relleno
+\usepackage[style=apa]{biblatex} % Uso de referencias bibliográficas en el estilo APA
+\usepackage{csquotes} % Garantiza que los textos citados son compuestos de acuerdo a las reglas del idioma seleccionado
+
+\addbibresource{referencias.bib} % Carga el archivo de referencias para ser citado en el cuerpo del documento
+
+% Introduce las imágenes de identidad institucional en el encabezado y pie de página
+\AddToShipoutPictureBG{%
+  \AtPageUpperLeft{%
+    \raisebox{-\height}{\includegraphics[width=\paperwidth]{img/header_banner.png}}
+  }
+  \AtPageLowerLeft{%
+    \raisebox{1pt}{\includegraphics[width=\paperwidth]{img/footer_banner.png}}
+  }%
+}
+
+\begin{document}
+
+\input{portada.tex} % Carga el archivo que define los contenidos de la portada
+
+\tableofcontents % Genera la tabla de contenidos
+
+% Cuerpo del documento, separado en sectiones
+\section{Introducción}
+\lipsum[1-2] \cite{albalooshi2003virtual}
+
+\section{Desarrollo}
+\lipsum[1-3] \cite{WOS:000540232900001}
+
+
+\section{Resultados}
+\lipsum[1-3] \cite{sternberg2010dynamical}
+
+\section{Conclusiones}
+\lipsum[1-2] \cite{chatterjee2021covid}
+
+% Genera la bibliografía
+\printbibliography[heading=bibintoc]
+
+\end{document}
