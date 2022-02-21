@@ -8,7 +8,7 @@
 \usepackage[style=apa]{biblatex} % Uso de referencias bibliográficas en el estilo APA
 \usepackage{csquotes} % Garantiza que los textos citados son compuestos de acuerdo a las reglas del idioma seleccionado
 \usepackage{amsmath} % Permite escribir expresiones matemáticas
-
+\usepackage{listings} % Se utiliza para presentar código en fuente monoespacio
 
 \addbibresource{referencias.bib} % Carga el archivo de referencias para ser citado en el cuerpo del documento
 
@@ -102,7 +102,132 @@ Al definir los límites del sistema se hace, en primer lugar, una selección de 
       x_1 \\ x_2 \\ x_3 \\ x_4
     \end{bmatrix}
   \end{align}
+
+  \begin{itemize}
+    \item $k_1$: dos primeros dígitos de su número de documento de identidad = 80.
+    \item $k_2$: dos últimos dígitos de su número de documento de identidad = 69.
+    \item $b_1$: quinto número de su documento de identidad = 2.
+    \item $m_1$: número grupo colaborativo = 117.
+    \item $m_2$: peso corporal en kilogramos = 70.
+  \end{itemize}
+
+  \begin{align}
+    \begin{bmatrix}
+      \dot{x}_1 \\ \dot{x}_2 \\ \dot{x}_3 \\ \dot{x}_4
+    \end{bmatrix} =
+    \begin{bmatrix}
+      0 & 1 & 0 & 0\\
+      -\frac{149}{117} & -\frac{2}{117} & -\frac{80}{117} & -\frac{2}{117}\\
+      0 & 0 & 0 & 1\\
+      \frac{69}{7} & \frac{2}{70} & -\frac{69}{7} & -\frac{2}{70}
+    \end{bmatrix}&
+    \begin{bmatrix}
+      x_1 \\ x_2 \\ x_3 \\ x_4
+    \end{bmatrix} + 
+    \begin{bmatrix}
+      0 \\ \frac{80}{117} \\ 0 \\ 0
+    \end{bmatrix}
+    u(t)\\
+    y =
+    \begin{bmatrix}
+      0 & 0 & 1 & 0
+    \end{bmatrix}&
+    \begin{bmatrix}
+      x_1 \\ x_2 \\ x_3 \\ x_4
+    \end{bmatrix}
+  \end{align}
+
+\item Obtener las ecuaciones de espacios de estados y su correlación con la función de transferencia que representa el sistema seleccionado.
+
+\begin{equation*}
+  H(s) = C(sI-A)^-1B
+\end{equation*}
+Donde
+\begin{align*}
+  A &=
+  \begin{bmatrix}
+    0 & 1 & 0 & 0\\
+    -\frac{149}{117} & -\frac{2}{117} & -\frac{80}{117} & -\frac{2}{117}\\
+    0 & 0 & 0 & 1\\
+    \frac{69}{7} & \frac{2}{70} & -\frac{69}{7} & -\frac{2}{70}
+  \end{bmatrix}\\
+  B &= 
+  \begin{bmatrix}
+    0 \\ \frac{80}{117} \\ 0 \\ 0
+  \end{bmatrix}\\
+  C &= 
+  \begin{bmatrix}
+    0 & 0 & 1 & 0
+  \end{bmatrix}&
+\end{align*}
+
+\begin{align}
+  sI-A &= s
+  \begin{bmatrix}
+    1 & 0 & 0 & 0\\
+    0 & 1 & 0 & 0\\
+    0 & 0 & 1 & 0\\
+    0 & 0 & 0 & 1 
+  \end{bmatrix}
+  -
+  \begin{bmatrix}
+    0 & 1 & 0 & 0\\
+    -\frac{149}{117} & -\frac{2}{117} & -\frac{80}{117} & -\frac{2}{117}\\
+    0 & 0 & 0 & 1\\
+    \frac{69}{7} & \frac{2}{70} & -\frac{69}{7} & -\frac{2}{70}
+  \end{bmatrix}\\
+  &=
+  \begin{bmatrix}
+    s & -1 & 0 & 0\\
+    \frac{149}{117} & s+\frac{2}{117} & \frac{80}{117} & \frac{2}{117}\\
+    0 & 0 & s & -1\\
+    -\frac{69}{7} & -\frac{2}{70} & \frac{69}{7} & s+\frac{2}{70}
+  \end{bmatrix}
+\end{align}
+
+Dadas las dimensiones de la matriz, se realizó el resto del desarrollo de manera computacional con MATLAB:
+
+\begin{lstlisting}[language=matlab]
+clear all
+close all
+clc
+ 
+k1 = 80;
+k2 = 69;
+b1 = 2;
+m1 = 17;
+m2 = 70;
+ 
+A = [0 1 0 0;...
+    -(k1+k2)/m1 -b1/m1 -k2/m1 -b1/m1;...
+     0 0 0 1;...
+     k2/m2 b1/m2 -k2/m2 -b1/m2];
+B = [0;k1/m1;0;0];
+C = [0 0 1 0];
+D = [0];
+ 
+[N,D] = ss2tf(A,B,C,D);
+ 
+H1 = tf(N,D)
+\end{lstlisting}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=15cm]{img/codigo.png}
+  \caption{Ejecución del código desarrollado.}
+\end{figure}
+
+\begin{equation*}
+  H(s) = \frac{0.1345s + 4.639}{s^4+0.1462s^3+9.757s^2+0.5983s+12.64} 
+\end{equation*}
+
+Si comparamos esta ecuación con la obtenida por el método de transformada de Laplace:
+% \begin{equation}
+  
+% \end{equation}
+
 \end{enumerate}
+
 
 
 \section{Resultados}
