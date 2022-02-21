@@ -7,6 +7,8 @@
 \usepackage{lipsum} % Empleado para generar texto genérico de relleno
 \usepackage[style=apa]{biblatex} % Uso de referencias bibliográficas en el estilo APA
 \usepackage{csquotes} % Garantiza que los textos citados son compuestos de acuerdo a las reglas del idioma seleccionado
+\usepackage{amsmath} % Permite escribir expresiones matemáticas
+
 
 \addbibresource{referencias.bib} % Carga el archivo de referencias para ser citado en el cuerpo del documento
 
@@ -28,10 +30,79 @@
 
 % Cuerpo del documento, separado en sectiones
 \section{Introducción}
-\lipsum[1-2] \cite{albalooshi2003virtual}
+Un sistema dinámico es un sistema cuyo estado evoluciona con el tiempo. Los sistemas físicos en situación no estacionaria son ejemplos de sistemas dinámicos, pero también existen modelos económicos, matemáticos y de otros tipos que son sistemas abstractos y, a su vez, sistemas dinámicos. El comportamiento en dicho estado se puede caracterizar determinando los límites del sistema, los elementos y sus relaciones; de esta forma se pueden elaborar modelos que buscan representar la estructura del mismo sistema \cite{albalooshi2003virtual}.
+Al definir los límites del sistema se hace, en primer lugar, una selección de aquellos componentes que contribuyan a generar los modos de comportamiento, y luego se determina el espacio donde se llevará a cabo el estudio, omitiendo toda clase de aspectos irrelevantes.
 
-\section{Desarrollo}
-\lipsum[1-3] \cite{WOS:000540232900001}
+\section{Objetivos}
+\begin{itemize}
+  \item Utilizar la presentación de espacios de estados para estudiar sistemas dinamicos.
+  \item Utilizar software especializado para simular el modelo matemático del sistema físico propuesto.
+\end{itemize}
+
+\section{Desarrollo de la Guía}
+\begin{enumerate}
+  \item Cada estudiante continua con el mismo sistema seleccionado del Anexo 2, tomando como base para este desarrollo el modelo matemático obtenido en el dominio del tiempo en la Etapa 2.
+  En la etapa 2 se seleccionó el sistema de suspensión de un automóvil (Fig. \ref{fig:sistema_mecanico}).
+
+  La masa $m_1$ corresponde a la masa de la llanta y su valor corresponde al número de su grupo colaborativo. La masa $m_2$ corresponde a la masa del chasis y es equivalente a su peso corporal en kilogramos. $k_1$ representa la constante elástica de la llanta y su valor corresponde a los 2 primeros números de su documento de identidad. $k_2$ es la constante elástica del resorte de suspensión y su valor corresponde a los 2 últimos números de su documento de identidad. $b_1$ es la constante del amortiguador y su valor corresponde al 5 número de su documento de identidad.
+
+  Se tiene como señal de entrada a $r(t)$ que es el nivel de la calle y la salida es y(t) que representa la posición vertical del chasis del automóvil respecto a algún punto de equilibrio.
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=10cm]{img/sistema.png}
+    \caption{Sistema mecánico seleccionado.}
+    \label{fig:sistema_mecanico}
+  \end{figure}
+
+  \item Para el sistema seleccionado, aplicar principios físicos y matemáticos que le permitan obtener el modelo matemático del sistema representado por ecuaciones de espacios de estados.
+
+  Las ecuaciones diferenciales que modelan el sistema en el dominio del tiempo son:
+
+  \begin{align}
+    \frac{d^2q}{dt^2} &= \frac{k_1}{m_1}r - \frac{b_1}{m_1}\frac{dq}{dt} - \frac{k_1+k_2}{m_1}q - \frac{b_1}{m_1}\frac{dy}{dt} - \frac{k_2}{m_1}y\\
+     \frac{d^2y}{dt^2} &= -\frac{b_1}{m_2}\frac{dy}{dt} - \frac{k_2}{m_2}y + \frac{b_1}{m_2}\frac{dq}{dt} + \frac{k_2}{m_2}q
+  \end{align}
+  \begin{equation*}
+    x_1 = q \quad \Rightarrow \quad \dot{x}_1 = \frac{dq}{dt} \quad \Rightarrow \quad \ddot{x}_1 = \frac{d^2q}{dt^2}
+  \end{equation*}
+  \begin{equation*}
+    x_2 = y \quad \Rightarrow \quad \dot{x}_2 = \frac{dy}{dt} \quad \Rightarrow \quad \ddot{x}_2 = \frac{d^2y}{dt^2}
+  \end{equation*}
+  \begin{equation*}
+    u(t) = r
+  \end{equation*}
+  \begin{align}
+    \ddot{x}_1 &= \frac{k_1}{m_1}u(t) - \frac{b_1}{m_1}\dot{x}_1 - \frac{k_1+k_2}{m_1}x_1 - \frac{b_1}{m_1}\dot{x}_2 - \frac{k_2}{m_1}x_2\\
+     \ddot{x}_2 &= -\frac{b_1}{m_2}\dot{x}_2 - \frac{k_2}{m_2}x_2 + \frac{b_1}{m_2}\dot{x}_1 + \frac{k_2}{m_2}x_1
+  \end{align}
+
+  \begin{align}
+    \begin{bmatrix}
+      \dot{x}_1 \\ \dot{x}_2 \\ \dot{x}_3 \\ \dot{x}_4
+    \end{bmatrix} =
+    \begin{bmatrix}
+      0 & 1 & 0 & 0\\
+      -\frac{k_1+k_2}{m_1} & -\frac{b_1}{m_1} & -\frac{k_2}{m_1} & -\frac{b_1}{m_1}\\
+      0 & 0 & 0 & 1\\
+      \frac{k_2}{m_2} & \frac{b_1}{m_2} & -\frac{k_2}{m_2} & -\frac{b_1}{m_2}
+    \end{bmatrix}&
+    \begin{bmatrix}
+      x_1 \\ x_2 \\ x_3 \\ x_4
+    \end{bmatrix} + 
+    \begin{bmatrix}
+      0 \\ \frac{k_1}{m_1} \\ 0 \\ 0
+    \end{bmatrix}
+    u(t)\\
+    y =
+    \begin{bmatrix}
+      0 & 0 & 1 & 0
+    \end{bmatrix}&
+    \begin{bmatrix}
+      x_1 \\ x_2 \\ x_3 \\ x_4
+    \end{bmatrix}
+  \end{align}
+\end{enumerate}
 
 
 \section{Resultados}
