@@ -187,6 +187,7 @@ Donde
 
 Dadas las dimensiones de la matriz, se realizó el resto del desarrollo de manera computacional con MATLAB:
 
+\begin{figure}
 \begin{lstlisting}[language=matlab]
 clear all
 close all
@@ -210,6 +211,8 @@ D = [0];
  
 H1 = tf(N,D)
 \end{lstlisting}
+\caption{Código desarrollado usando la representación en variables de estado.}
+\end{figure}
 
 \begin{figure}
   \centering
@@ -222,19 +225,75 @@ H1 = tf(N,D)
 \end{equation*}
 
 Si comparamos esta ecuación con la obtenida por el método de transformada de Laplace:
-% \begin{equation}
-  
-% \end{equation}
+\begin{equation*}
+  H(s) = \frac{Y(s)}{R(s)} = \frac{(b_1s+k_2)k_1}{(m_2s^2+b_1s+k_2)(m_1s^2+b_1s+k_2+k_1)+(b1_s+k_2)(b_1s+k_2)}
+\end{equation*}
+
+\begin{figure}
+\begin{lstlisting}[language=matlab]
+clear all
+close all
+clc
+ 
+k1 = 80;
+k2 = 69;
+b1 = 2;
+m1 = 17;
+m2 = 70;
+ 
+s=tf('s')
+ 
+num = (b1*s + k2)*k1
+den = (m2*s^2 + b1*s + k2)*(m1*s^2 + b1*s + k2 + k1)...
+          +(b1*s + k2)*(b1*s + k2)
+ 
+H = num/den
+\end{lstlisting}
+\caption{Código desarrollado usando la transformada de Laplace.}
+\label{fig:códigoLaplace}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=9cm]{img/ecuacion.png}
+  \caption{Función de transferencia obtenida.}
+  \label{fig:ecuacion}
+\end{figure}
+
+Si a la ecuación mostrada en la figura \ref{fig:ecuacion}, dividimos el numerado y el denominador por 10010 obtenemos el resultado mostrado en la figura \ref{fig:ecuacion2}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=9cm]{img/ecuacion2.png}
+  \caption{Función de transferencia normalizada.}
+  \label{fig:ecuacion2}
+\end{figure}
+
+La ecuación mostrada en la figura \ref{fig:ecuacion2} es igual a la obtenida por espacios de estado, por tanto, el desarrollo es correcto, ahora si calculamos el lugar geométrico de las raíces de este sistema nos encontramos que el sistema tiene 2 polos en el semiplano derecho, por tanto, el sistema es inestable. 
+
+\item 3.  Generar el diagrama de bloques que representa el modelo matemático en espacio de estados del sistema seleccionado, teniendo en cuenta que, una vez transcurridos los 5 primeros segundos, el sistema recibe una señal de perturbación que altera en una unidad la señal de entrada, aumentando así su valor.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm]{img/bloques.png}
+  \caption{Diagrama de bloques del sistema diseñado empleando Simulink.}
+  \label{fig:diagramabloques}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=14cm]{img/simulacion.png}
+  \caption{Resultados de la simulación del sistema.}
+  \label{fig:simulacion}
+\end{figure}
+
 
 \end{enumerate}
 
 
-
-\section{Resultados}
-\lipsum[1-3] \cite{sternberg2010dynamical}
-
 \section{Conclusiones}
-\lipsum[1-2] \cite{chatterjee2021covid}
+
+Representar sistemas dinámicos por medio de espacios de estados es de gran ayuda en el análisis de dichos sistemas, además de dar inicio al control, evalua sistemas físicos en el dominio del tiempo, y junto a Matlab y simulink son de gran ayuda en el estudio de sistemas dinámicos  dado el estudio de las matrices de controlabilidad, como se muestra en \cite{chatterjee2021covid}.
 
 % Genera la bibliografía
 \printbibliography[heading=bibintoc]
