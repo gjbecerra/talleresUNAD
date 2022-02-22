@@ -31,7 +31,9 @@
 % Cuerpo del documento, separado en sectiones
 \section{Introducción}
 Un sistema dinámico es un sistema cuyo estado evoluciona con el tiempo. Los sistemas físicos en situación no estacionaria son ejemplos de sistemas dinámicos, pero también existen modelos económicos, matemáticos y de otros tipos que son sistemas abstractos y, a su vez, sistemas dinámicos. El comportamiento en dicho estado se puede caracterizar determinando los límites del sistema, los elementos y sus relaciones; de esta forma se pueden elaborar modelos que buscan representar la estructura del mismo sistema \cite{albalooshi2003virtual}.
-Al definir los límites del sistema se hace, en primer lugar, una selección de aquellos componentes que contribuyan a generar los modos de comportamiento, y luego se determina el espacio donde se llevará a cabo el estudio, omitiendo toda clase de aspectos irrelevantes.
+Al definir los límites del sistema se hace, en primer lugar, una selección de aquellos componentes que contribuyan a generar los modos de comportamiento, y luego se determina el espacio donde se llevará a cabo el estudio, omitiendo toda clase de aspectos irrelevantes. 
+
+\lipsum[2-3]
 
 \section{Objetivos}
 \begin{itemize}
@@ -47,6 +49,8 @@ Al definir los límites del sistema se hace, en primer lugar, una selección de 
   La masa $m_1$ corresponde a la masa de la llanta y su valor corresponde al número de su grupo colaborativo. La masa $m_2$ corresponde a la masa del chasis y es equivalente a su peso corporal en kilogramos. $k_1$ representa la constante elástica de la llanta y su valor corresponde a los 2 primeros números de su documento de identidad. $k_2$ es la constante elástica del resorte de suspensión y su valor corresponde a los 2 últimos números de su documento de identidad. $b_1$ es la constante del amortiguador y su valor corresponde al 5 número de su documento de identidad.
 
   Se tiene como señal de entrada a $r(t)$ que es el nivel de la calle y la salida es y(t) que representa la posición vertical del chasis del automóvil respecto a algún punto de equilibrio.
+
+  \lipsum[3-4] \cite{sternberg2010dynamical}
 
   \begin{figure}
     \centering
@@ -271,7 +275,13 @@ Si a la ecuación mostrada en la figura \ref{fig:ecuacion}, dividimos el numerad
 
 La ecuación mostrada en la figura \ref{fig:ecuacion2} es igual a la obtenida por espacios de estado, por tanto, el desarrollo es correcto, ahora si calculamos el lugar geométrico de las raíces de este sistema nos encontramos que el sistema tiene 2 polos en el semiplano derecho, por tanto, el sistema es inestable. 
 
-\item 3.  Generar el diagrama de bloques que representa el modelo matemático en espacio de estados del sistema seleccionado, teniendo en cuenta que, una vez transcurridos los 5 primeros segundos, el sistema recibe una señal de perturbación que altera en una unidad la señal de entrada, aumentando así su valor.
+\lipsum[1][1-5]
+
+\item Generar el diagrama de bloques que representa el modelo matemático en espacio de estados del sistema seleccionado, teniendo en cuenta que, una vez transcurridos los 5 primeros segundos, el sistema recibe una señal de perturbación que altera en una unidad la señal de entrada, aumentando así su valor.
+
+En la figura \ref{fig:diagramabloques} se muestra el diagrama de bloques desarrollado en Simulink, usando el bloque \emph{State Space}. En la figura \ref{fig:simulacion} se observan los resultados de ejecutar la simulación para los primeros 10 segundos.
+
+\lipsum[1-2] \cite{WOS:000540232900001}
 
 \begin{figure}
   \centering
@@ -294,6 +304,8 @@ La ecuación mostrada en la figura \ref{fig:ecuacion2} es igual a la obtenida po
 \section{Conclusiones}
 
 Representar sistemas dinámicos por medio de espacios de estados es de gran ayuda en el análisis de dichos sistemas, además de dar inicio al control, evalua sistemas físicos en el dominio del tiempo, y junto a Matlab y simulink son de gran ayuda en el estudio de sistemas dinámicos  dado el estudio de las matrices de controlabilidad, como se muestra en \cite{chatterjee2021covid}.
+
+\lipsum[1-2][1-15]
 
 % Genera la bibliografía
 \printbibliography[heading=bibintoc]
