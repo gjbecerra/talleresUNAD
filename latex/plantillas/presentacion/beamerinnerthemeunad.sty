@@ -1,0 +1,35 @@
+%!TEX root = ./presentacion_unad.tex
+
+\mode <presentation>
+
+\setbeamerfont{title}{family=\fontfamily{phv}\selectfont}
+\setbeamerfont{city}{family=\fontfamily{phv}\selectfont}
+
+\newcommand{\city}{\@dblarg\beamer@city}
+\long\def\beamer@city[#1]#2{%
+  \def\insertcity{#2}  %
+  \def\insertshortcity{#1}%
+  }
+\city[defaultShortCity]{defaultLongCity}
+
+% Title page
+\defbeamertemplate*{title page}{unad}[1][]
+{
+	\vskip2cm
+	\begin{beamercolorbox}[wd=9cm,left,#1]{institute}
+		\usebeamerfont{city}\textbf{\insertinstitute}
+	\end{beamercolorbox}
+
+	\vskip0.5cm
+	\begin{beamercolorbox}[wd=9cm,left,#1]{title page header}
+		\usebeamerfont{title}\Huge\textbf{\inserttitle}\par
+	\end{beamercolorbox}
+
+	\vskip0.5cm
+	\begin{beamercolorbox}[wd=9cm,left,#1]{title page header}
+		\usebeamerfont{city}\scriptsize\textbf{\insertcity, \insertdate}\par
+	\end{beamercolorbox}
+}
+
+\mode
+<all>

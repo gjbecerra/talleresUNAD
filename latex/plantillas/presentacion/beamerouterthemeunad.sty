@@ -1,0 +1,13 @@
+\mode<presentation>
+
+\setbeamerfont{frametitle}{family=\fontfamily{phv}\selectfont}
+
+% Frame title
+\defbeamertemplate*{frametitle}{unad}[1][]
+{
+	\vskip0.3cm
+	\begin{beamercolorbox}[wd=\paperwidth,leftskip=0.8cm]{frametitle}
+		\usebeamerfont{frametitle}\large\insertframetitle	\par
+	\end{beamercolorbox}
+
+}
