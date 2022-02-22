@@ -16,18 +16,23 @@
 \defbeamertemplate*{title page}{unad}[1][]
 {
 	\vskip2cm
-	\begin{beamercolorbox}[wd=9cm,left,#1]{institute}
+	\begin{beamercolorbox}[wd=10cm,left,#1]{institute}
 		\usebeamerfont{city}\textbf{\insertinstitute}
 	\end{beamercolorbox}
 
-	\vskip0.5cm
-	\begin{beamercolorbox}[wd=9cm,left,#1]{title page header}
+	\vskip0.3cm
+	\begin{beamercolorbox}[wd=10cm,left,#1]{title page header}
 		\usebeamerfont{title}\Huge\textbf{\inserttitle}\par
 	\end{beamercolorbox}
 
-	\vskip0.5cm
+	\vskip0.3cm
 	\begin{beamercolorbox}[wd=9cm,left,#1]{title page header}
-		\usebeamerfont{city}\scriptsize\textbf{\insertcity, \insertdate}\par
+		\usebeamerfont{city}\normalsize\textbf{\insertauthor}\par
+	\end{beamercolorbox}
+
+	\vskip0.1cm
+	\begin{beamercolorbox}[wd=9cm,left,#1]{title page header}
+		\usebeamerfont{city}\small\textbf{\insertcity, \insertdate}\par
 	\end{beamercolorbox}
 }
 
