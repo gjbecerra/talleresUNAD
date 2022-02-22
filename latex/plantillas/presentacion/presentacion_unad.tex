@@ -1,0 +1,45 @@
+\documentclass[aspectratio=169]{beamer}
+
+\title{Título de la Presentación}
+\subtitle{Subtítulo de la Presentación}
+\author{Nombre del Autor}
+\institute{UNAD}
+\date{\today}
+
+\usebackgroundtemplate%
+{%
+    \includegraphics[width=\paperwidth,height=\paperheight]{img/content_background.jpg}%
+}
+
+\begin{document}
+
+{\usebackgroundtemplate{
+	\includegraphics[width=\paperwidth]{img/cover_background.jpg}}%
+	\frame{\titlepage}
+}
+
+
+\section{Introducción}
+\begin{frame}[t]\frametitle{Introducción}
+
+\end{frame}
+
+\section{Contenidos}
+\begin{frame}[t]\frametitle{Contenidos 1}
+
+\end{frame}
+
+\begin{frame}[t]\frametitle{Contenidos 2}
+
+\end{frame}
+
+{\usebackgroundtemplate{
+	\includegraphics[width=\paperwidth]{img/end_background.jpg}}%
+	\begin{frame}
+		¡Gracias!
+	\end{frame}
+	
+}
+
+
+\end{document}
