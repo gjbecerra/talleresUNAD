@@ -21,6 +21,7 @@
   stringstyle      = \color{DarkRed},    % string color
   backgroundcolor  = \color{lightgray}, % backgroundcolor color
   showstringspaces = false,              % do not mark spaces in strings
+  basicstyle=\ttfamily,
 }
 
 \usetheme{unad}
@@ -117,7 +118,7 @@
 \begin{columns}
 	\begin{column}{0.5\textwidth}
 		Para crear un documento se puede utilizar cualquier editor de texto. A continuación se encuentra un ejemplo mínimo:
-		\begin{lstlisting}[backgroundcolor=\color{lightgray}]
+		\begin{lstlisting}
 \documentclass{article}
 % Preambulo
 \begin{document}
@@ -145,7 +146,7 @@
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\textwidth}
-			\begin{lstlisting}[backgroundcolor=\color{lightgray}]
+			\begin{lstlisting}
 No importa si se introducen
 uno o mas            espacios
 despues de una	palabra.
@@ -165,7 +166,7 @@ inicia un nuevo parrafo.
 	\begin{itemize}
 		\item Los siguientes símbolos son de uso reservado y si se introducen directamente en el texto pueden generar errores: \#\ \$\ \%\ \^\ \&\ \_\ \{\ \}\ \~\ \textbackslash{}.
 		\item Para utilizarlos dentro del texto se adiciona el caracter \textbackslash{} de la siguiente manera:
-		\begin{lstlisting}[backgroundcolor=\color{lightgray}]
+		\begin{lstlisting}
 \# \$ \% \^ \& \_ \{ \} \~ \textbackslash{}
 		\end{lstlisting}
 	\end{itemize}
@@ -175,7 +176,7 @@ inicia un nuevo parrafo.
 	\begin{itemize}
 		\item Son estructuras que definen las características locales de los contenidos en el documento.
 		\item Su sintaxis se define de la siguiente manera:
-		\begin{lstlisting}[backgroundcolor=\color{lightgray}]
+		\begin{lstlisting}
 \begin{nombreentorno}
   Texto o contenidos que van a ser influenciados
 \end{nombreentorno}
@@ -188,7 +189,7 @@ inicia un nuevo parrafo.
 		\item Los comandos inician con el caracter backslash \textbackslash{} y continúan con el nombre.
 		\item Algunos comandos requieren un argumento que se debe dar dentro de llaves \{\ \}.
 		\item La sintáxis general es:
-		\begin{lstlisting}[backgroundcolor=\color{lightgray}]
+		\begin{lstlisting}
 \nombrecomando[opcion1,opcion2,...]{argum1}{argum2}...
 		\end{lstlisting}
 	\end{itemize}
@@ -202,7 +203,7 @@ inicia un nuevo parrafo.
 	\end{itemize}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
-			\begin{lstlisting}[backgroundcolor=\color{lightgray}]
+			\begin{lstlisting}
 % Este texto no es mostrado
 % Este tampoco
 Este texto si es visible
@@ -232,7 +233,7 @@ Otra linea de % comentario
 \end{frame}
 
 
-\section{Estructura del Documento}
+\section{Elementos Generales del Lenguaje \LaTeX}
 \begin{frame}[t]\frametitle{Estructura General del Documento}
 	\begin{itemize}
 		\item Para comunicar mejor nuestras ideas, nuestros textos deben tener una estructura lógica.
@@ -293,25 +294,19 @@ Otra linea de % comentario
 \end{frame}
 
 \begin{frame}[t]\frametitle{Ejercicio 1}
-	\begin{itemize}
+	\begin{enumerate}
 	 	\item Crea un documento usando la clase \texttt{article} donde se incluya título, autor y fecha. Configura el papel en tamaño carta. Utiliza el paquete \texttt{lipsum} para generar textos genéricos.
 	 	\item Modifica el documento anterior para configurar el papel en tamaño A4 y organizar el texto en doble columna. Cambia el tamaño base del tipo de letra a 12 puntos.
-	\end{itemize} 
+	\end{enumerate} 
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{Resumen del Documento}
 	En muchas situaciones, se requiere introducir un resumen (abstract) al inicio del documento. Para hacerlo se usa el entorno \texttt{abstract}:
-	\begin{lstlisting}[backgroundcolor=\color{lightgray}]
+	\begin{lstlisting}
 \begin{abstract}
 	Escribe aqui tu resumen...
 \end{abstract}
 	\end{lstlisting}
-\end{frame}
-
-\begin{frame}[t]\frametitle{Ejercicio 2}
-	\begin{itemize}
-	 	\item Modifica el documento anterior para agregar un resumen. Usa el paquete \texttt{lipsum} para generar los textos.
-	\end{itemize} 
 \end{frame}
 
 \begin{frame}[t]\frametitle{Secciones del Documento}
@@ -335,13 +330,150 @@ Otra linea de % comentario
 \end{frame}
 
 
-\begin{frame}[t]\frametitle{Ejercicio 3}
-	\begin{itemize}
-	 	\item Crea un artículo que incluya los siguientes elementos: título, autor, fecha, abstract, tabla de contenido y contenido. Organiza el contenido en las secciones introducción, metodología, resultados y conclusiones. Utiliza el paquete \texttt{lipsum} para generar los textos.
-	 	\item Crea un libro que tenga 3 capítulos, cada uno con 2 secciones. El libro debe tener una portada con el título, autor y fecha. También debe incluir la tabla de contenido.
-	\end{itemize} 
+\begin{frame}[t]\frametitle{Ejercicio 2}
+	\begin{enumerate}
+	 	\item Crea un artículo que incluya los siguientes elementos: título, autor, fecha, resumen, tabla de contenido y contenido. Organiza el contenido en las secciones introducción, metodología, resultados y conclusiones. Utiliza el paquete \texttt{lipsum} para generar los textos.
+	 	\item Crea un libro que tenga 3 capítulos: introducción, desarrollo y conclusión. Cada capítulo debe tener 3 secciones. El libro debe tener una portada con el título, autor y fecha. También debe incluir la tabla de contenido.
+	\end{enumerate} 
 \end{frame}
 
+\begin{frame}[t]\frametitle{Gestión de Referencias Bibliográficas}
+	\begin{itemize}
+		\item La mayoría de documentos técnicos se basan en otras fuentes de información para desarrollar sus contenidos.
+		\item Es necesario incluir referencias a dichas fuentes.
+		\item \LaTeX\ permite insertar fácilmente estas referencias.
+		\item Para manejar las referencias es recomendable utilizar el paquete \texttt{biblatex}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle{Gestión de Referencias Bibliográficas}
+	Los comandos básicos de \texttt{biblatex} a utilizar son:
+	\begin{itemize}
+		\item \texttt{\textbackslash{}usepackage\{biblatex\}}: Importa el paquete \texttt{biblatex}.
+		\item \texttt{\textbackslash{}addbibresource\{referencias.bib\}}: Importa el archivo \texttt{referencias.bib} donde se encuentra la información bibliográfica de las fuentes de información.
+		\item \texttt{\textbackslash{}cite\{nombreref\}}: Inserta una cita dentro del documento, usando la referencia \texttt{nombreref}.
+		\item \texttt{\textbackslash{}printbibliography:} Imprime la lista de referencias citadas dentro del texto.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Biblatex - Ejemplo de Uso}
+	Definimos el archivo \texttt{referencias.bib}:
+	\begin{lstlisting}
+@book{lamport1994latex,
+  title={LATEX: A Document Preparation System : User's Guide and Reference Manual},
+  author={Lamport, L. and Bibby, D. and Pearson Education},
+  isbn={9780201529838},
+  lccn={93039691},
+  series={Addison-Wesley Series on Tools},
+  url={https://books.google.com.co/books?id=khVUAAAAMAAJ},
+  year={1994},
+  publisher={Addison-Wesley}
+}
+	\end{lstlisting} 
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Biblatex - Ejemplo de Uso}
+	Ahora definimos el archivo principal \texttt{main.tex}:
+	\begin{lstlisting}
+\documentclass{article}
+
+\usepackage{biblatex}
+\addbibresource{referencias.bib}
+
+\begin{document}
+  Leslie Lamport ha publicado \cite{lamport1994latex} una
+  introduccion al	lenguaje \LaTeX\ para la preparacion de
+  documentos tecnicos.
+
+  \printbibliography
+\end{document}
+	\end{lstlisting} 
+\end{frame}
+
+\begin{frame}[t]\frametitle{Biblatex - Ejemplo de Uso}
+	Al compilar el archivo principal, el resultado obtenido es el siguiente:
+	\begin{figure}
+		\centering
+		\includegraphics[width=12cm]{img/bibliografia.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Ejercicio 3}
+\begin{enumerate}
+	\item Crea un archivo \texttt{referencias.bib} con la información de libros y artículos disponible en diferentes bases de datos: \href{https://books.google.com}{Google Books}, \href{https://ieeexplore.ieee.org/}{IEEE Xplore}, \href{https://www.sciencedirect.com/}{ScienceDirect}.
+	\item Usando el artículo creado en el ejercicio 2-1, agrega los comandos para cargar el paquete \texttt{biblatex}, importar el archivo de referencias, incluir varias citas dentro del texto e imprimir las referencias al final del documento.
+	\item Agrega el siguiente comando al preámbulo. ¿Qué diferencias encuentras?
+	\begin{lstlisting}
+\usepackage[spanish]{babel}
+	\end{lstlisting}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Listas en \LaTeX}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item En documentos técnicos, es común utilizar listas para presentar la información de manera clara y concisa.
+				\item \LaTeX\ incluye tres estructuras de lista:
+				\begin{enumerate}
+					\item \texttt{itemize}: lista simple.
+					\item \texttt{enumerate}: lista numerada.
+					\item \texttt{description}: lista descriptiva.
+				\end{enumerate}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Todas las listas tienen el siguiente formato:
+				\begin{lstlisting}
+		\begin{tipo_lista}
+			\item Primer elemento
+			\item Segundo elemento
+			\item Tercer elemento
+		\end{tipo_lista}
+				\end{lstlisting}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Tablas en \LaTeX}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+		\begin{itemize}
+			\item En documentos técnicos es muy común utilizar tablas para presentar información.
+			\item \LaTeX\ ofrece el entorno \texttt{tabular} para organizar la información en forma de tablas.
+			\item El formato básico del entorno \texttt{tabular} es el siguiente:
+			\begin{lstlisting}
+		\begin{tabular}{params}
+			Datos tabulares
+		\end{tabular}
+			\end{lstlisting}
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{itemize}
+			\item Los parámetros definen la alineación de cada columna y si se insertan líneas verticales:
+			\begin{table}
+				\centering
+				\begin{tabular}{|l|l|}
+					\hline
+					l & alineación izquierda\\
+					\hline
+					c & alineación centrada\\
+					\hline
+					r & alineación derecha\\
+					\hline
+					| & línea vertical\\
+					\hline
+					|| & doble línea vertical\\
+					\hline
+				\end{tabular}
+			\end{table}
+		\end{itemize}
+	\end{column}
+\end{columns}
+\end{frame}
 
 % Diapositiva final
 {\usebackgroundtemplate{
