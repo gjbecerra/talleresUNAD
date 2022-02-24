@@ -21,7 +21,7 @@
   stringstyle      = \color{DarkRed},    % string color
   backgroundcolor  = \color{lightgray}, % backgroundcolor color
   showstringspaces = false,              % do not mark spaces in strings
-  basicstyle=\ttfamily,
+  basicstyle=\scriptsize\ttfamily,
 }
 
 \usetheme{unad}
@@ -37,6 +37,8 @@
 {%
     \includegraphics[width=\paperwidth,height=\paperheight]{img/content_background.jpg}%
 }
+
+\setbeamertemplate{caption}[numbered]
 
 \AtBeginSection[]
 {
@@ -414,7 +416,7 @@ Otra linea de % comentario
 		\begin{column}{0.5\textwidth}
 			\begin{itemize}
 				\item En documentos técnicos, es común utilizar listas para presentar la información de manera clara y concisa.
-				\item \LaTeX\ incluye tres estructuras de lista:
+				\item \LaTeX\ incluye tres tipos de lista:
 				\begin{enumerate}
 					\item \texttt{itemize}: lista simple.
 					\item \texttt{enumerate}: lista numerada.
@@ -426,13 +428,57 @@ Otra linea de % comentario
 			\begin{itemize}
 				\item Todas las listas tienen el siguiente formato:
 				\begin{lstlisting}
-		\begin{tipo_lista}
-			\item Primer elemento
-			\item Segundo elemento
-			\item Tercer elemento
-		\end{tipo_lista}
+\begin{tipo_lista}
+		\item Primer elemento
+		\item Segundo elemento
+		\item Tercer elemento
+\end{tipo_lista}
 				\end{lstlisting}
 			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Listas en \LaTeX\ - Ejemplos}
+	\begin{columns}
+		\begin{column}{0.33\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=2cm]{img/lista1.png}
+			\end{figure}
+			\begin{lstlisting}
+\begin{itemize}
+	\item Uno 
+	\item Dos 
+	\item Tres
+\end{itemize}
+			\end{lstlisting}
+		\end{column}
+		\begin{column}{0.33\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=2.1cm]{img/lista2.png}
+			\end{figure}
+			\begin{lstlisting}
+\begin{enumerate}
+	\item Uno
+	\item Dos
+	\item Tres
+\end{enumerate}
+			\end{lstlisting}
+		\end{column}
+		\begin{column}{0.33\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=2.3cm]{img/lista3.png}
+			\end{figure}
+			\begin{lstlisting}
+\begin{description}
+	\item[Gato] Uno
+	\item[Perro] Dos
+	\item[Pez] Tres
+\end{description}
+			\end{lstlisting}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -445,15 +491,15 @@ Otra linea de % comentario
 			\item \LaTeX\ ofrece el entorno \texttt{tabular} para organizar la información en forma de tablas.
 			\item El formato básico del entorno \texttt{tabular} es el siguiente:
 			\begin{lstlisting}
-		\begin{tabular}{params}
-			Datos tabulares
-		\end{tabular}
+\begin{tabular}{params}
+		Datos tabulares
+\end{tabular}
 			\end{lstlisting}
 		\end{itemize}
 	\end{column}
 	\begin{column}{0.5\textwidth}
 		\begin{itemize}
-			\item Los parámetros definen la alineación de cada columna y si se insertan líneas verticales:
+			\item Parámetros:
 			\begin{table}
 				\centering
 				\begin{tabular}{|l|l|}
@@ -470,10 +516,328 @@ Otra linea de % comentario
 					\hline
 				\end{tabular}
 			\end{table}
+			\item Comandos en los datos tabulares:
+			\vspace{-5mm}
+			\begin{table}
+				\centering
+				\begin{tabular}{|l|l|}
+					\hline
+					\& & Separador de columnas\\
+					\hline
+					\textbackslash\textbackslash & Inicia nueva fila\\
+					\hline
+					\textbackslash{}\texttt{hline} & Línea horizontal\\
+					\hline
+					\textbackslash{}\texttt{cline}\{i-j\} & Línea horizontal parcial\\
+					\hline
+				\end{tabular}
+			\end{table}
 		\end{itemize}
 	\end{column}
 \end{columns}
 \end{frame}
+
+\begin{frame}[fragile]\frametitle{Tablas en \LaTeX\ - Ejemplo}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=5cm]{img/tabla1.png}
+			\end{figure}
+			\begin{lstlisting}
+\begin{tabular}{lcr}
+	Nombre & Edad & Ciudad\\
+	Juan & 25 & Cali\\
+	Ana & 32 & Pasto
+\end{tabular}
+			\end{lstlisting}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=5cm]{img/tabla2.png}
+			\end{figure}
+			\begin{lstlisting}
+\begin{tabular}{|l||cr|}
+	\hline
+	Nombre & Edad & Ciudad\\
+	\hline
+	Juan & 25 & Cali\\
+	Ana & 32 & Pasto\\
+	\hline
+\end{tabular}
+			\end{lstlisting}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Incluir Gráficos en \LaTeX}
+	\begin{itemize}
+		\item Muchos documentos técnicos requieren incluir gráficos para presentar ideas, resultados, estadísticas, etc.
+		\item Es posible importar gráficos de mapas de bits (p.ej. \texttt{png}, \texttt{jpg}). Sin embargo idealmente es mejor trabajar con gráficos vectoriales (p.ej. \texttt{pdf}, \texttt{eps}).
+		\item El comando básico para incluir gráficos es el siguiente:
+		\begin{lstlisting}
+\includegraphics[params]{nombreimagen}
+		\end{lstlisting}
+		\item Algunos de los parámetros más utilizados son:
+		\begin{table}
+			\centering
+			\begin{tabular}{|l|l|}
+				\hline
+				\texttt{width=x} & Ancho del gráfico\\
+				\hline
+				\texttt{height=x} & Alto del gráfico\\
+				\hline
+				\texttt{scale=x} & Escala del gráfico\\
+				\hline
+				\texttt{angle=x} & Ángulo del gráfico\\
+				\hline
+			\end{tabular}
+		\end{table}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Incluir Gráficos en \LaTeX\ - Ejemplos}
+			\begin{figure}
+				\centering
+				\includegraphics[width=3cm]{img/logo.png}
+			\end{figure}
+			\begin{lstlisting}
+\includegraphics[width=2cm]{logo.png}
+			\end{lstlisting}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\textwidth,height=1cm]{img/logo.png}
+			\end{figure}
+			\begin{lstlisting}
+\includegraphics[width=\textwidth,height=1cm]{logo.png}
+			\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Incluir Gráficos en \LaTeX\ - Ejemplos}
+			\vspace{-5mm}
+			\begin{figure}
+				\centering
+				\includegraphics[width=2cm,angle=45]{img/logo.png}
+			\end{figure}
+			\vspace{-5mm}
+			\begin{lstlisting}
+\includegraphics[width=2cm,angle=45]{logo.png}
+			\end{lstlisting}
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.02]{img/logo.png}
+			\end{figure}
+			\begin{lstlisting}
+\includegraphics[scale=0.02]{logo.png}
+			\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Figuras y Leyendas en \LaTeX}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item Las imágenes que hemos insertado usando el comando \texttt{\textbackslash{}includegraphics} quedan embebidos dentro del párrafo.
+				\item Para colocar las imágenes de manera separada al texto y poder hacer referencia a estas, se utiliza el entorno \texttt{figure}:
+				\begin{lstlisting}
+\begin{figure}[spec]
+	... contenido ...
+\end{figure}
+				\end{lstlisting}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+	\begin{itemize}
+		\item El parámetro \texttt{spec} es un especificador que controla la ubicación de la figura:
+		\begin{figure}
+			\centering
+			\begin{tabular}{|c|l|}
+				\hline
+				\textbf{Especificador} & \textbf{Permiso}\\
+				\hline
+				\texttt{h} & Ubicar aquí la figura\\
+				\hline
+				\texttt{t} & Ubicar al inicio de la página\\
+				\hline
+				\texttt{b} & Ubicar al final de la página\\
+				\hline
+				\texttt{p} & Ubicar en una página propia\\
+				\hline
+				\texttt{!} & Anular los criterios internos\\
+				\hline
+			\end{tabular}
+		\end{figure}
+	\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Figuras y Leyendas en \LaTeX}
+	\begin{itemize}
+		\item Para incluir una leyenda en una figura se utiliza el comando \texttt{\textbackslash{}caption}:
+		\begin{figure}
+			\includegraphics[width=2cm]{img/logo.png}
+			\caption{Logotipo de la UNAD}
+		\end{figure}
+		\begin{lstlisting}
+\begin{figure}
+	\includegraphics[width=2cm]{logo.png}
+	\caption{Logotipo de la UNAD}
+\end{figure}
+		\end{lstlisting}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Figuras y Leyendas en \LaTeX}
+	\begin{itemize}
+		\item Para incluir una referencia a una figura dentro del texto primero se crea un rótulo usando el comando \texttt{\textbackslash{}label}:
+		\begin{columns}
+			\begin{column}{0.3\textwidth}
+				\begin{figure}
+					\includegraphics[width=2cm]{img/logo.png}
+					\caption{Logotipo de la UNAD}
+					\label{fig:logo UNAD}
+				\end{figure}
+			\end{column}
+			\begin{column}{0.7\textwidth}
+				\begin{lstlisting}
+\begin{figure}
+	\includegraphics[width=2cm]{logo.png}
+	\caption{Logotipo de la UNAD}
+	\label{fig:logo UNAD}
+\end{figure}
+				\end{lstlisting}
+			\end{column}
+		\end{columns}
+		\item Luego se incluye una referencia a la figura \ref{fig:logo UNAD} en el texto usando el comando \texttt{\textbackslash{}ref}:
+		\begin{lstlisting}
+\ref{fig:logo UNAD}
+		\end{lstlisting}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Figuras y Leyendas en \LaTeX}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Para crear una tabla con leyenda, se utiliza el entorno \texttt{table}:
+		\begin{lstlisting}
+\begin{table}
+	\begin{tabular}{|l||cr|}
+		\hline
+		Nombre & Edad & Ciudad\\
+		\hline
+		Juan & 25 & Cali\\
+		Ana & 32 & Pasto\\
+		\hline
+	\end{tabular}
+	\caption{Estudiantes del curso}
+	\label{tab:estudiantes curso}
+\end{table}
+		\end{lstlisting}
+			\end{itemize}
+		\end{column}
+	\begin{column}{0.5\textwidth}
+		\begin{table}
+			\begin{tabular}{|l||cr|}
+				\hline
+				Nombre & Edad & Ciudad\\
+				\hline
+				Juan & 25 & Cali\\
+				Ana & 32 & Pasto\\
+				\hline
+			\end{tabular}
+			\caption{Estudiantes del curso}
+			\label{tab:estudiantes curso}
+		\end{table}
+		\vspace{-5mm}
+		\begin{itemize}
+			\item Al igual que en las figuras, el rótulo se puede utilizar para hacer referencia al cuadro \ref{tab:estudiantes curso}:
+			\begin{lstlisting}
+\ref{tab:estudiantes curso}
+			\end{lstlisting}
+			\item Listas de figuras y tablas: \texttt{\textbackslash{}listoffigures}, \texttt{\textbackslash{}listoftables}.
+		\end{itemize}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Notas de Pie de Página en \LaTeX}
+	\begin{itemize}
+		\item Crear una nota de pie de página es muy fácil.\footnote{Esta es una nota de pie de página.}
+		\item Para crear una nota de pie de página se utiliza el comando \texttt{\textbackslash{}footnote\{texto\}}.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Expresiones Matemáticas en \LaTeX}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+	\begin{itemize}
+		\item Una de las principales ventajas de \LaTeX\ es la facilidad para preparar expresiones matemáticas.
+		\item Existen diferentes entornos para preparar expresiones matemáticas:
+		\begin{itemize}
+			\item \texttt{\$...\$}: Expresión matemática embebida (\emph{en línea}) en el texto.
+			\item \texttt{equation}: Expresión matemática separada del texto (\emph{flotante}).
+		\end{itemize}
+		\item Para producir la expresión $x^2 + y^2 = 1$ en línea:
+		\begin{lstlisting}
+$x^2 + y^2 = 1$
+		\end{lstlisting}
+	\end{itemize}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+	\begin{itemize}
+		\item La ecuación \eqref{eq:ecuacion1} es una expresión flotante:
+		\begin{equation}
+			\sin^2\theta + \cos^2\theta = 1
+			\label{eq:ecuacion1}
+		\end{equation}
+		\begin{lstlisting}
+\begin{equation}
+	\sin^2\theta + \cos^2\theta = 1
+	\label{eq:ecuacion1}
+\end{equation}
+		\end{lstlisting}
+		Para referenciarla se usa \texttt{\textbackslash{}eqref\{eq:ecuacion1\}}
+	\end{itemize}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Operadores Matemáticos en \LaTeX}
+	\begin{table}
+		\small
+		\begin{tabular}{|l|c|c|c|}
+			\hline
+			\textbf{Categoría} & \textbf{Operadores} & \textbf{Código} & \textbf{Resultado}\\
+			\hline
+			F. Trigonomét. & \texttt{\textbackslash{}sin}, \texttt{\textbackslash{}cos}, \texttt{\textbackslash{}tan} & \texttt{\$\textbackslash{}cos(0) = 1\$} & $\cos(0) = 1$\\ 
+			\hline
+			Potencias, Indices & \texttt{\^}, \texttt{\_} & \texttt{\$k\_\{n+1\}=n\^{}\{10\}+k\_n\^{}2\$} & $k_{n+1}=n^{10}+k_n^2$\\
+			\hline
+			Fracciones & \texttt{\textbackslash{}frac} & \texttt{\$\textbackslash{}frac\{n!\}\{k!(n-k)!\}\$} & $\frac{n!}{k!(n-k)!}$\\
+			\hline
+			Raíces & \texttt{\textbackslash{}sqrt} & \texttt{\$\textbackslash{}sqrt[n]\{1+x\^{}2\}\$} & $\sqrt[n]{1+x^2}$\\
+			\hline
+			Sumas & \texttt{\textbackslash{}sum} & \texttt{\$\textbackslash{}sum\_\{i=1\}\^{}\{10\} t\_i\$} & $\sum_{i=1}^{10} t_i$\\
+			\hline
+			Integrales & \texttt{\textbackslash{}int} & \texttt{\$\textbackslash{}int\_0\^{}\textbackslash{}infty e\^{}\{-x\}\textbackslash{},dx\$} & $\int_0^\infty e^{-x}\,dx$\\
+			\hline
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
 
 % Diapositiva final
 {\usebackgroundtemplate{
