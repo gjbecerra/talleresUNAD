@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\usepackage[spanish]{babel}
+\usepackage{lipsum}
+\usepackage{biblatex}
+\addbibresource{referencias.bib}
+
+\title{Mi primer articulo}
+\author{Gerardo Becerra}
+\date{\today}
+
+\begin{document}
+  \maketitle
+
+  \begin{abstract}
+    \lipsum[1]
+  \end{abstract}
+
+  \section{Introducción}
+  \lipsum[1-4] \cite{goodfellow2016deep}
+
+  \section{Metodología}
+  \lipsum[1-4] \cite{PIGA2021415}
+  
+  \section{Resultados}
+  \lipsum[1-4] \cite{9372789}
+  
+  \section{Conclusiones}
+  \lipsum[1-4]
+ 
+  \printbibliography
+\end{document}
