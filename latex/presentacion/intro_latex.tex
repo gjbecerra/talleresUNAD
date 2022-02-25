@@ -57,6 +57,12 @@
 	\frame{\titlepage}
 }
 
+
+\begin{frame}
+	\frametitle{Agenda de la Presentación}
+	\tableofcontents
+\end{frame}
+
 % Aquí inician los contenidos de la presentación
 \section{Introducción al sistema \LaTeX}
 \begin{frame}[t]\frametitle{¿Qué es \LaTeX?}
@@ -265,11 +271,11 @@ Otra linea de % comentario
     every node/.append style = { align = center, minimum height = 10pt,
                                  font = \bfseries, fill= green!20},
                   text width = 5cm ]
-  \node [right = 1.1cm of a]  (A) {Clase del documento};
-  \node [right = 1.6cm of b]  (B) {Preámbulo};
+  \node [right = 1.0cm of a]  (A) {Clase del documento};
+  \node [right = 2.0cm of b]  (B) {Preámbulo};
   \node [right = 4.7cm of c]  (C) {Inicio entorno documento};
-  \node [right = 5.2cm of d]  (D) {Contenidos del documento};  
-  \node [right = 5.2cm of e]  (E) {Fin entorno documento};  
+  \node [right = 5.6cm of d]  (D) {Contenidos del documento};  
+  \node [right = 5.1cm of e]  (E) {Fin entorno documento};  
   \draw (A.west) edge (a.east);
   \draw (B.west) edge (b.east) ;
   \draw (C.west) edge (c.east) ;  
@@ -978,14 +984,16 @@ $x^2 + y^2 = 1$
 	\end{itemize}
 \end{frame}
 
-\begin{frame}[t]\frametitle{Quiero Usar \LaTeX. ¿Cómo empezar?}
+\begin{frame}[t]\frametitle{Quiero Usar \LaTeX. ¿Qué debo hacer?}
 	\begin{itemize}
-		\item Documentación:
+		\item Consulta la documentación:
 		\begin{itemize}
 			\item \href{https://es.wikipedia.org/wiki/Ayuda:Uso_de_LaTeX}{Wikipedia: Uso de \LaTeX.}
 			\item \href{https://es.wikibooks.org/wiki/Manual_de_LaTeX}{WikiLibros: Manual de \LaTeX.}
 			\item \href{https://tex.stackexchange.com/}{\TeX\ Exchange: Preguntas y Respuestas de \LaTeX.}
 		\end{itemize}
+		\item Usa \href{https://www.overleaf.com}{Overleaf} para familiarizarte con el entorno de \LaTeX\ y preparar los primeros documentos.
+		\item Con mayor experiencia, puedes instalar en tu PC alguna de las distribuciones disponibles (\href{http://www.tug.org/texlive/}{TeX Live}, \href{http://www.miktex.org/}{MiKTeX}, \href{http://www.tug.org/mactex/}{MacTeX}) para poder trabajar fuera de línea y continuar preparando documentos más complejos.
 	\end{itemize}
 \end{frame}
 
