@@ -68,11 +68,13 @@
 \begin{frame}[t]\frametitle{¿Qué es \LaTeX?}
 	\begin{itemize}
 		\item Es un lenguaje creado por \href{https://en.wikipedia.org/wiki/Donald_Knuth}{Donald Knuth} y luego extendido por \href{https://en.wikipedia.org/wiki/Leslie_Lamport}{Leslie Lamport} para crear documentos atractivos y consistentes.
+		\pause
 		\item Es un lenguaje tipográfico y de marcado (markup):
 		\begin{itemize}
 			\item Tipográfico: Reglas que definen la organización y presentación de los contenidos en un documento.
 			\item Marcado: Reglas que definen los contenidos de un documento.
 		\end{itemize}
+		\pause
 		\item Estos dos aspectos se manejan por separado (Una persona crea la plantilla y otra se encarga de producir los contenidos del documento).
 	\end{itemize}
 \end{frame}
@@ -80,8 +82,10 @@
 \begin{frame}[t]\frametitle{¿Por qué usar \LaTeX?}
 	\begin{itemize}
 		\item Dos enfoques diferentes:
+		\pause
 		\begin{itemize}
 			\item Sistemas \emph{What You See is What You Get} (WYSIWYG): Microsoft Word, Google Docs, LibreOffice, etc. $\longrightarrow$ A medida que se va editando el documento se  va observando la apariencia que éste toma. 
+			\pause
 			\item \LaTeX\ $\longrightarrow$ Se utilizan comandos para describir los contenidos en un archivo de texto, y luego un programa se encarga de producir el documento.
 		\end{itemize}
 	\end{itemize}	
@@ -90,18 +94,25 @@
 \begin{frame}[t]\frametitle{¿Por qué usar \LaTeX?}
 	\begin{itemize}
 		\item Ventajas:
+		\pause
 		\begin{itemize}
 			\item El autor se puede concentrar únicamente en la estructura y contenidos del documento. \LaTeX\ se encarga de aplicar las reglas tipográficas para producir un documento consistente.
+			\pause
 			\item En \LaTeX\ es fácil reproducir la estructura de un documento.
+			\pause
 			\item Manejo automático de índices, pies de página, citaciones y referencias.
+			\pause
 			\item Las fórmulas matemáticas se pueden preparar fácilmente.
+			\pause
 			\item El documento de origen es texto plano
 			\begin{itemize}
 			 	\item Lectura en cualquier sistema
 			 	\item Generación automática de contenidos
 			 	\item Control de versiones
 			 \end{itemize}
+			\pause
 			\item La preparación de artículos para revistas y conferencias internacionales se realiza usando plantillas de \LaTeX.
+			\pause
 			\item ¡Es gratuito!
 		\end{itemize}
 	\end{itemize}
@@ -110,13 +121,16 @@
 \begin{frame}[t]\frametitle{¿Cómo obtener \LaTeX?}
 	\begin{itemize}
 		\item Para empezar, ¡no se requiere instalar nada! $\longrightarrow$ Editor en línea: \href{https://www.overleaf.com}{Overleaf}.
+		\pause
 		\item Para trabajar fuera de línea, se descarga y se instala una distribución de \LaTeX:
 		\begin{itemize}
 			\item \href{http://www.tug.org/texlive/}{TeX Live}: Distribución multiplataforma.
 			\item \href{http://www.miktex.org/}{MiKTeX}: Distribución multiplataforma.
 			\item \href{http://www.tug.org/mactex/}{MacTeX}: Distribución para Mac OS, basada en TeX Live.
 		\end{itemize}
+		\pause
 		\item Para preparar los documentos se requiere un \href{https://en.wikipedia.org/wiki/Comparison_of_TeX_editors}{editor de texto}.
+		\pause
 		\item Para usar funcionalidades específicas, se pueden instalar \href{https://www.ctan.org/}{paquetes adicionales}.
 	\end{itemize}
 \end{frame}
@@ -134,6 +148,7 @@
 \end{document}	
 		\end{lstlisting}
 	\end{column}
+	\pause
 	\begin{column}{0.5\textwidth}
 		El documento obtenido será el siguiente:
 		\begin{figure}
@@ -149,8 +164,11 @@
 		\begin{column}{0.5\textwidth}
 			\begin{itemize}
 				\item El compilador de \LaTeX\ normaliza los espacios en blanco. Varios caracteres consecutivos de [espacio] y [tabulador] son tratados como uno sólo.
+				\pause
 				\item Un salto de línea sencillo [Enter] también es tratado como un espacio en blanco.
+				\pause
 				\item Dos saltos de línea definen un nuevo párrafo.
+				\pause
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\textwidth}
@@ -173,6 +191,7 @@ inicia un nuevo parrafo.
 \begin{frame}[fragile]\frametitle{Caracteres Reservados}
 	\begin{itemize}
 		\item Los siguientes símbolos son de uso reservado y si se introducen directamente en el texto pueden generar errores: \#\ \$\ \%\ \^\ \&\ \_\ \{\ \}\ \~\ \textbackslash{}.
+		\pause
 		\item Para utilizarlos dentro del texto se adiciona el caracter \textbackslash{} de la siguiente manera:
 		\begin{lstlisting}
 \# \$ \% \^ \& \_ \{ \} \~ \textbackslash{}
@@ -183,6 +202,7 @@ inicia un nuevo parrafo.
 \begin{frame}[fragile]\frametitle{Entornos de \LaTeX (Environments)}
 	\begin{itemize}
 		\item Son estructuras que definen las características locales de los contenidos en el documento.
+		\pause
 		\item Su sintaxis se define de la siguiente manera:
 		\begin{lstlisting}
 \begin{nombreentorno}
@@ -195,7 +215,11 @@ inicia un nuevo parrafo.
 \begin{frame}[fragile]\frametitle{Comandos de \LaTeX}
 	\begin{itemize}
 		\item Los comandos inician con el caracter backslash \textbackslash{} y continúan con el nombre.
-		\item Algunos comandos requieren un argumento que se debe dar dentro de llaves \{\ \}.
+		\pause
+		\item Algunos comandos requieren argumentos obligatorios que se debe dar dentro de llaves \{\ \}.
+		\pause
+		\item Algunos comandos poseen argumentos opcionales que se debe dar dentro de corchetes [\ ].
+		\pause
 		\item La sintáxis general es:
 		\begin{lstlisting}
 \nombrecomando[opcion1,opcion2,...]{argum1}{argum2}...
@@ -206,9 +230,12 @@ inicia un nuevo parrafo.
 \begin{frame}[fragile]\frametitle{Comentarios}
 	\begin{itemize}
 		\item El caracter \% se utiliza para representar comentarios dentro del archivo de texto.
+		\pause
 		\item \LaTeX\ ignora el contenido que se encuentra después del caracter \% y no lo incluye en el documento preparado.
+		\pause
 		\item \LaTeX\ también ignora el salto de línea y todo el espacio en blanco al inicio de la siguiente línea.
 	\end{itemize}
+	\pause
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			\begin{lstlisting}
@@ -232,10 +259,15 @@ Otra linea de % comentario
 \begin{frame}[t]\frametitle{Generar el Documento}
 	\begin{itemize}
 		\item Los archivos de texto fuente de \LaTeX\ se guardan con la extensión \texttt{tex} (p.ej. \texttt{hola.tex}
+		\pause
 		\item Para compilar el archivo de texto fuente se utiliza el comando \texttt{latex} junto con el nombre del archivo (p.ej. \texttt{latex hola}. Éste comando producirá un archivo con extensión \texttt{dvi} (p.ej. \texttt{hola.dvi}).
+		\pause
 		\item Luego, para generar el archivo final en formato \texttt{pdf} se utiliza el comando \texttt{pdflatex} (p.ej. \texttt{pdflatex hola}).
+		\pause
 		\item Si se utiliza un editor de texto estos comandos se ejecutan de manera automática.
+		\pause
 		\item También existen sistemas para realizar la compilación en un sólo paso. Por ejemplo \texttt{latexmk -pdf hola.tex}.
+		\pause
 		\item El proceso de compilación produce algunos archivos auxiliares (\texttt{aux}, \texttt{log}, \texttt{fls}, \texttt{nav}, etc).
 	\end{itemize}
 \end{frame}
@@ -245,7 +277,9 @@ Otra linea de % comentario
 \begin{frame}[t]\frametitle{Estructura General del Documento}
 	\begin{itemize}
 		\item Para comunicar mejor nuestras ideas, nuestros textos deben tener una estructura lógica.
+		\pause
 		\item \LaTeX\ requiere que el autor indique la estructura lógica del contenido para preparar el documento de acuerdo a las reglas de \emph{typesetting}.
+		\pause
 		\item \LaTeX\ permite utilizar estructuras jerárquicas tales como capítulos, secciones, subsecciones y parágrafos.
 	\end{itemize}
 \end{frame}
@@ -303,6 +337,7 @@ Otra linea de % comentario
 \begin{frame}[t]\frametitle{Ejercicio 1}
 	\begin{enumerate}
 	 	\item Crea un documento usando la clase \texttt{article} donde se incluya título, autor y fecha. Configura el papel en tamaño carta. Utiliza el paquete \texttt{lipsum} para generar textos genéricos.
+		\pause
 	 	\item Modifica el documento anterior para configurar el papel en tamaño A4 y organizar el texto en doble columna. Cambia el tamaño base del tipo de letra a 12 puntos.
 	\end{enumerate} 
 \end{frame}
@@ -340,6 +375,7 @@ Otra linea de % comentario
 \begin{frame}[t]\frametitle{Ejercicio 2}
 	\begin{enumerate}
 	 	\item Crea un artículo que incluya los siguientes elementos: título, autor, fecha, resumen, tabla de contenido y contenido. Organiza el contenido en las secciones introducción, metodología, resultados y conclusiones. Utiliza el paquete \texttt{lipsum} para generar los textos.
+		\pause
 	 	\item Crea un libro que tenga 3 capítulos: introducción, desarrollo y conclusión. Cada capítulo debe tener 3 secciones. El libro debe tener una portada con el título, autor y fecha. También debe incluir la tabla de contenido.
 	\end{enumerate} 
 \end{frame}
@@ -347,8 +383,11 @@ Otra linea de % comentario
 \begin{frame}[t]\frametitle{Gestión de Referencias Bibliográficas}
 	\begin{itemize}
 		\item La mayoría de documentos técnicos se basan en otras fuentes de información para desarrollar sus contenidos.
+		\pause
 		\item Es necesario incluir referencias a dichas fuentes.
+		\pause
 		\item \LaTeX\ permite insertar fácilmente estas referencias.
+		\pause
 		\item Para manejar las referencias es recomendable utilizar el paquete \texttt{biblatex}
 	\end{itemize}
 \end{frame}
@@ -357,8 +396,11 @@ Otra linea de % comentario
 	Los comandos básicos de \texttt{biblatex} a utilizar son:
 	\begin{itemize}
 		\item \texttt{\textbackslash{}usepackage\{biblatex\}}: Importa el paquete \texttt{biblatex}.
+		\pause
 		\item \texttt{\textbackslash{}addbibresource\{referencias.bib\}}: Importa el archivo \texttt{referencias.bib} donde se encuentra la información bibliográfica de las fuentes de información.
+		\pause
 		\item \texttt{\textbackslash{}cite\{nombreref\}}: Inserta una cita dentro del documento, usando la referencia \texttt{nombreref}.
+		\pause
 		\item \texttt{\textbackslash{}printbibliography:} Imprime la lista de referencias citadas dentro del texto.
 	\end{itemize}
 \end{frame}
@@ -406,15 +448,18 @@ Otra linea de % comentario
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{Ejercicio 3}
-\begin{enumerate}
-	\item Crea un archivo \texttt{referencias.bib} con la información de libros y artículos disponible en diferentes bases de datos: \href{https://books.google.com}{Google Books}, \href{https://ieeexplore.ieee.org/}{IEEE Xplore}, \href{https://www.sciencedirect.com/}{ScienceDirect}.
-	\item Usando el artículo creado en el ejercicio 2-1, agrega los comandos para cargar el paquete \texttt{biblatex}, importar el archivo de referencias, incluir varias citas dentro del texto e imprimir las referencias al final del documento.
-	\item Agrega el siguiente comando al preámbulo. ¿Qué diferencias encuentras?
-	\begin{lstlisting}
-\usepackage[spanish]{babel}
-	\end{lstlisting}
-	\item Utiliza la opción \texttt{style=apa} al importar \texttt{biblatex}. ¿Cómo cambian las citaciones?
-\end{enumerate}
+	\begin{enumerate}
+		\item Crea un archivo \texttt{referencias.bib} con la información de libros y artículos disponible en diferentes bases de datos: \href{https://books.google.com}{Google Books}, \href{https://ieeexplore.ieee.org/}{IEEE Xplore}, \href{https://www.sciencedirect.com/}{ScienceDirect}.
+		\pause
+		\item Usando el artículo creado en el ejercicio 2-1, agrega los comandos para cargar el paquete \texttt{biblatex}, importar el archivo de referencias, incluir varias citas dentro del texto e imprimir las referencias al final del documento.
+		\pause
+		\item Agrega el siguiente comando al preámbulo. ¿Qué diferencias encuentras?
+		\begin{lstlisting}
+	\usepackage[spanish]{babel}
+		\end{lstlisting}
+		\pause
+		\item Utiliza la opción \texttt{style=apa} al importar \texttt{biblatex}. ¿Cómo cambian las citaciones?
+	\end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{Listas en \LaTeX}
@@ -422,12 +467,14 @@ Otra linea de % comentario
 		\begin{column}{0.5\textwidth}
 			\begin{itemize}
 				\item En documentos técnicos, es común utilizar listas para presentar la información de manera clara y concisa.
+				\pause
 				\item \LaTeX\ incluye tres tipos de lista:
 				\begin{enumerate}
 					\item \texttt{itemize}: lista simple.
 					\item \texttt{enumerate}: lista numerada.
 					\item \texttt{description}: lista descriptiva.
 				\end{enumerate}
+				\pause
 			\end{itemize}
 		\end{column}
 		\begin{column}{0.5\textwidth}
@@ -460,6 +507,7 @@ Otra linea de % comentario
 \end{itemize}
 			\end{lstlisting}
 		\end{column}
+		\pause
 		\begin{column}{0.33\textwidth}
 			\begin{figure}
 				\centering
@@ -473,6 +521,7 @@ Otra linea de % comentario
 \end{enumerate}
 			\end{lstlisting}
 		\end{column}
+		\pause
 		\begin{column}{0.33\textwidth}
 			\begin{figure}
 				\centering
@@ -494,7 +543,9 @@ Otra linea de % comentario
 	\begin{column}{0.5\textwidth}
 		\begin{itemize}
 			\item En documentos técnicos es muy común utilizar tablas para presentar información.
+			\pause
 			\item \LaTeX\ ofrece el entorno \texttt{tabular} para organizar la información en forma de tablas.
+			\pause
 			\item El formato básico del entorno \texttt{tabular} es el siguiente:
 			\begin{lstlisting}
 \begin{tabular}{params}
@@ -504,6 +555,7 @@ Otra linea de % comentario
 		\end{itemize}
 	\end{column}
 	\begin{column}{0.5\textwidth}
+		\pause
 		\begin{itemize}
 			\item Parámetros:
 			\begin{table}
@@ -522,6 +574,7 @@ Otra linea de % comentario
 					\hline
 				\end{tabular}
 			\end{table}
+			\pause
 			\item Comandos en los datos tabulares:
 			\vspace{-5mm}
 			\begin{table}
@@ -558,6 +611,7 @@ Otra linea de % comentario
 \end{tabular}
 			\end{lstlisting}
 		\end{column}
+		\pause
 		\begin{column}{0.5\textwidth}
 			\begin{figure}
 				\centering
@@ -582,16 +636,20 @@ Otra linea de % comentario
 	\begin{column}{0.5\textwidth}
 	\begin{itemize}
 		\item Muchos documentos técnicos requieren incluir gráficos para presentar ideas, resultados, estadísticas, etc.
+		\pause
 		\item Es posible importar gráficos de mapas de bits (p.ej. \texttt{png}, \texttt{jpg}). Sin embargo idealmente es mejor trabajar con gráficos vectoriales (p.ej. \texttt{pdf}, \texttt{eps}).
+		\pause
 		\item El comando básico para incluir gráficos es el siguiente:
 		\begin{lstlisting}
 \includegraphics[params]{nombreimg}
 		\end{lstlisting}
 	\end{itemize}
 	\end{column}	
+	\pause
 	\begin{column}{0.5\textwidth}
 	\begin{itemize}
 		\item Para documentos del tipo \texttt{article}, es necesario importar el paquete \texttt{graphicx}.
+		\pause
 		\item Algunos de los parámetros más utilizados son:
 		\begin{table}
 			\centering
@@ -620,6 +678,7 @@ Otra linea de % comentario
 			\begin{lstlisting}
 \includegraphics[width=2cm]{logo.png}
 			\end{lstlisting}
+			\pause
 			\begin{figure}
 				\centering
 				\includegraphics[width=\textwidth,height=1cm]{img/logo.png}
@@ -639,6 +698,7 @@ Otra linea de % comentario
 			\begin{lstlisting}
 \includegraphics[width=2cm,angle=45]{logo.png}
 			\end{lstlisting}
+			\pause
 			\begin{figure}
 				\centering
 				\includegraphics[scale=0.02]{img/logo.png}
@@ -653,6 +713,7 @@ Otra linea de % comentario
 		\begin{column}{0.4\textwidth}
 			\begin{itemize}
 				\item Las imágenes que hemos insertado usando el comando \texttt{\textbackslash{}includegraphics} quedan embebidos dentro del párrafo.
+				\pause
 				\item Para colocar las imágenes de manera separada al texto y poder hacer referencia a estas, se utiliza el entorno \texttt{figure}:
 				\begin{lstlisting}
 \begin{figure}[spec]
@@ -661,6 +722,7 @@ Otra linea de % comentario
 				\end{lstlisting}
 			\end{itemize}
 		\end{column}
+		\pause
 		\begin{column}{0.6\textwidth}
 	\begin{itemize}
 		\item El parámetro \texttt{spec} es un especificador que controla la ubicación de la figura:
@@ -724,6 +786,7 @@ Otra linea de % comentario
 				\end{lstlisting}
 			\end{column}
 		\end{columns}
+		\pause
 		\item Luego se incluye una referencia a la figura \ref{fig:logo UNAD} en el texto usando el comando \texttt{\textbackslash{}ref}:
 		\begin{lstlisting}
 \ref{fig:logo UNAD}
@@ -752,6 +815,7 @@ Otra linea de % comentario
 		\end{lstlisting}
 			\end{itemize}
 		\end{column}
+		\pause
 	\begin{column}{0.5\textwidth}
 		\begin{table}
 			\begin{tabular}{|l||cr|}
@@ -765,12 +829,14 @@ Otra linea de % comentario
 			\caption{Estudiantes del curso}
 			\label{tab:estudiantes curso}
 		\end{table}
+		\pause
 		\vspace{-5mm}
 		\begin{itemize}
 			\item Al igual que en las figuras, el rótulo se puede utilizar para hacer referencia al cuadro \ref{tab:estudiantes curso}:
 			\begin{lstlisting}
 \ref{tab:estudiantes curso}
 			\end{lstlisting}
+			\pause
 			\item Listas de figuras y tablas: \texttt{\textbackslash{}listoffigures}, \texttt{\textbackslash{}listoftables}.
 		\end{itemize}
 	\end{column}
@@ -789,17 +855,20 @@ Otra linea de % comentario
 	\begin{column}{0.5\textwidth}
 	\begin{itemize}
 		\item Una de las principales ventajas de \LaTeX\ es la facilidad para preparar expresiones matemáticas.
+		\pause
 		\item Existen diferentes entornos para preparar expresiones matemáticas:
 		\begin{itemize}
 			\item \texttt{\$...\$}: Expresión matemática embebida (\emph{en línea}) en el texto.
 			\item \texttt{equation}: Expresión matemática separada del texto (\emph{flotante}).
 		\end{itemize}
+		\pause
 		\item Para producir la expresión $x^2 + y^2 = 1$ en línea:
 		\begin{lstlisting}
 $x^2 + y^2 = 1$
 		\end{lstlisting}
 	\end{itemize}
 	\end{column}
+	\pause
 	\begin{column}{0.5\textwidth}
 	\begin{itemize}
 		\item La ecuación \eqref{eq:ecuacion1} es una expresión flotante:
@@ -813,6 +882,7 @@ $x^2 + y^2 = 1$
 	\label{eq:ecuacion1}
 \end{equation}
 		\end{lstlisting}
+		\pause
 		Para referenciarla se usa \texttt{\textbackslash{}eqref\{eq:ecuacion1\}}
 		\item Se requiere el paquete \texttt{amsmath} o \texttt{mathtools}.
 	\end{itemize}
@@ -992,7 +1062,9 @@ $x^2 + y^2 = 1$
 			\item \href{https://es.wikibooks.org/wiki/Manual_de_LaTeX}{WikiLibros: Manual de \LaTeX.}
 			\item \href{https://tex.stackexchange.com/}{\TeX\ Exchange: Preguntas y Respuestas de \LaTeX.}
 		\end{itemize}
+		\pause
 		\item Usa \href{https://www.overleaf.com}{Overleaf} para familiarizarte con el entorno de \LaTeX\ y preparar los primeros documentos.
+		\pause
 		\item Con mayor experiencia, puedes instalar en tu PC alguna de las distribuciones disponibles (\href{http://www.tug.org/texlive/}{TeX Live}, \href{http://www.miktex.org/}{MiKTeX}, \href{http://www.tug.org/mactex/}{MacTeX}) para poder trabajar fuera de línea y continuar preparando documentos más complejos.
 	\end{itemize}
 \end{frame}
