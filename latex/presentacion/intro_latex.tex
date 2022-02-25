@@ -13,7 +13,7 @@
 
 \lstset{%
   frame            = tb,    % draw frame at top and bottom of code block
-  tabsize          = 1,     % tab space width
+  tabsize          = 2,     % tab space width
   framesep         = 3pt,   % expand outward
   framerule        = 0.4pt, % expand outward 
   commentstyle     = \color{Green},      % comment color
@@ -124,7 +124,7 @@
 \documentclass{article}
 % Preambulo
 \begin{document}
-  Contenidos del documento...
+	Contenidos del documento...
 \end{document}	
 		\end{lstlisting}
 	\end{column}
@@ -180,7 +180,7 @@ inicia un nuevo parrafo.
 		\item Su sintaxis se define de la siguiente manera:
 		\begin{lstlisting}
 \begin{nombreentorno}
-  Texto o contenidos que van a ser influenciados
+	Texto o contenidos que van a ser influenciados
 \end{nombreentorno}
 		\end{lstlisting}
 	\end{itemize}
@@ -250,15 +250,14 @@ Otra linea de % comentario
     basicstyle = \ttfamily\bfseries, linewidth = .6\linewidth] 
  \documentclass[options]{class} !\tikz[remember picture] \node [] (a) {};!
 
- 		\includepackage{package1} !\tikz[remember picture] \node [] (b){};!           
- 		\includepackage{package2}
+	\includepackage{package1} !\tikz[remember picture] \node [] (b){};!           
+	\includepackage{package2}
     
- 		\begin{document} !\tikz[remember picture] \node [] (c){};! 
-
- 				Contenidos !\tikz[remember picture] \node [] (d){};!  
-
-		\end{document} !\tikz[remember picture] \node [] (e){};!
- % }
+\begin{document} !\tikz[remember picture] \node [] (c){};! 
+	...	
+	Contenidos !\tikz[remember picture] \node [] (d){};!  
+	...
+\end{document} !\tikz[remember picture] \node [] (e){};!
 \end{lstlisting}
 \begin{tikzpicture}[remember picture, overlay,
     every edge/.append style = { ->, thick, >=stealth,
@@ -267,10 +266,10 @@ Otra linea de % comentario
                                  font = \bfseries, fill= green!20},
                   text width = 5cm ]
   \node [right = 1.1cm of a]  (A) {Clase del documento};
-  \node [right = 1.8cm of b]  (B) {Preámbulo};
-  \node [right = 4.0cm of c]  (C) {Inicio entorno documento};
-  \node [right = 5.0cm of d]  (D) {Contenidos del documento};  
-  \node [right = 4.7cm of e]  (E) {Fin entorno documento};  
+  \node [right = 1.6cm of b]  (B) {Preámbulo};
+  \node [right = 4.7cm of c]  (C) {Inicio entorno documento};
+  \node [right = 5.2cm of d]  (D) {Contenidos del documento};  
+  \node [right = 5.2cm of e]  (E) {Fin entorno documento};  
   \draw (A.west) edge (a.east);
   \draw (B.west) edge (b.east) ;
   \draw (C.west) edge (c.east) ;  
@@ -362,14 +361,14 @@ Otra linea de % comentario
 	Definimos el archivo \texttt{referencias.bib}:
 	\begin{lstlisting}
 @book{lamport1994latex,
-  title={LATEX: A Document Preparation System : User's Guide and Reference Manual},
-  author={Lamport, L. and Bibby, D. and Pearson Education},
-  isbn={9780201529838},
-  lccn={93039691},
-  series={Addison-Wesley Series on Tools},
-  url={https://books.google.com.co/books?id=khVUAAAAMAAJ},
-  year={1994},
-  publisher={Addison-Wesley}
+	title={LATEX: A Document Preparation System: User's Guide and Reference Manual},
+	author={Lamport, L. and Bibby, D. and Pearson Education},
+	isbn={9780201529838},
+	lccn={93039691},
+	series={Addison-Wesley Series on Tools},
+	url={https://books.google.com.co/books?id=khVUAAAAMAAJ},
+	year={1994},
+	publisher={Addison-Wesley}
 }
 	\end{lstlisting} 
 \end{frame}
@@ -383,11 +382,11 @@ Otra linea de % comentario
 \addbibresource{referencias.bib}
 
 \begin{document}
-  Leslie Lamport ha publicado \cite{lamport1994latex} una
-  introduccion al	lenguaje \LaTeX\ para la preparacion de
-  documentos tecnicos.
+	Leslie Lamport ha publicado \cite{lamport1994latex} una
+	introduccion al	lenguaje \LaTeX\ para la preparacion de
+	documentos tecnicos.
 
-  \printbibliography
+	\printbibliography
 \end{document}
 	\end{lstlisting} 
 \end{frame}
@@ -408,6 +407,7 @@ Otra linea de % comentario
 	\begin{lstlisting}
 \usepackage[spanish]{babel}
 	\end{lstlisting}
+	\item Utiliza la opción \texttt{style=apa} al importar \texttt{biblatex}. ¿Cómo cambian las citaciones?
 \end{enumerate}
 \end{frame}
 
@@ -429,9 +429,9 @@ Otra linea de % comentario
 				\item Todas las listas tienen el siguiente formato:
 				\begin{lstlisting}
 \begin{tipo_lista}
-		\item Primer elemento
-		\item Segundo elemento
-		\item Tercer elemento
+	\item Primer elemento
+	\item Segundo elemento
+	\item Tercer elemento
 \end{tipo_lista}
 				\end{lstlisting}
 			\end{itemize}
@@ -492,7 +492,7 @@ Otra linea de % comentario
 			\item El formato básico del entorno \texttt{tabular} es el siguiente:
 			\begin{lstlisting}
 \begin{tabular}{params}
-		Datos tabulares
+	Datos tabulares
 \end{tabular}
 			\end{lstlisting}
 		\end{itemize}
@@ -572,13 +572,20 @@ Otra linea de % comentario
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{Incluir Gráficos en \LaTeX}
+\begin{columns}
+	\begin{column}{0.5\textwidth}
 	\begin{itemize}
 		\item Muchos documentos técnicos requieren incluir gráficos para presentar ideas, resultados, estadísticas, etc.
 		\item Es posible importar gráficos de mapas de bits (p.ej. \texttt{png}, \texttt{jpg}). Sin embargo idealmente es mejor trabajar con gráficos vectoriales (p.ej. \texttt{pdf}, \texttt{eps}).
 		\item El comando básico para incluir gráficos es el siguiente:
 		\begin{lstlisting}
-\includegraphics[params]{nombreimagen}
+\includegraphics[params]{nombreimg}
 		\end{lstlisting}
+	\end{itemize}
+	\end{column}	
+	\begin{column}{0.5\textwidth}
+	\begin{itemize}
+		\item Para documentos del tipo \texttt{article}, es necesario importar el paquete \texttt{graphicx}.
 		\item Algunos de los parámetros más utilizados son:
 		\begin{table}
 			\centering
@@ -595,6 +602,8 @@ Otra linea de % comentario
 			\end{tabular}
 		\end{table}
 	\end{itemize}
+	\end{column}	
+\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{Incluir Gráficos en \LaTeX\ - Ejemplos}
@@ -799,45 +808,196 @@ $x^2 + y^2 = 1$
 \end{equation}
 		\end{lstlisting}
 		Para referenciarla se usa \texttt{\textbackslash{}eqref\{eq:ecuacion1\}}
+		\item Se requiere el paquete \texttt{amsmath} o \texttt{mathtools}.
 	\end{itemize}
 	\end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]\frametitle{Operadores Matemáticos en \LaTeX}
-	\begin{table}
-		\small
-		\begin{tabular}{|l|c|c|c|}
-			\hline
-			\textbf{Categoría} & \textbf{Operadores} & \textbf{Código} & \textbf{Resultado}\\
-			\hline
-			F. Trigonomét. & \texttt{\textbackslash{}sin}, \texttt{\textbackslash{}cos}, \texttt{\textbackslash{}tan} & \texttt{\$\textbackslash{}cos(0) = 1\$} & $\cos(0) = 1$\\ 
-			\hline
-			Potencias, Indices & \texttt{\^}, \texttt{\_} & \texttt{\$k\_\{n+1\}=n\^{}\{10\}+k\_n\^{}2\$} & $k_{n+1}=n^{10}+k_n^2$\\
-			\hline
-			Fracciones & \texttt{\textbackslash{}frac} & \texttt{\$\textbackslash{}frac\{n!\}\{k!(n-k)!\}\$} & $\frac{n!}{k!(n-k)!}$\\
-			\hline
-			Raíces & \texttt{\textbackslash{}sqrt} & \texttt{\$\textbackslash{}sqrt[n]\{1+x\^{}2\}\$} & $\sqrt[n]{1+x^2}$\\
-			\hline
-			Sumas & \texttt{\textbackslash{}sum} & \texttt{\$\textbackslash{}sum\_\{i=1\}\^{}\{10\} t\_i\$} & $\sum_{i=1}^{10} t_i$\\
-			\hline
-			Integrales & \texttt{\textbackslash{}int} & \texttt{\$\textbackslash{}int\_0\^{}\textbackslash{}infty e\^{}\{-x\}\textbackslash{},dx\$} & $\int_0^\infty e^{-x}\,dx$\\
-			\hline
-		\end{tabular}
-	\end{table}
+	\begin{itemize}
+		\item \textbf{Categoría}: Funciones Trigonométricas.
+		\item \textbf{Operadores}: \texttt{\textbackslash{}sin}, \texttt{\textbackslash{}cos}, \texttt{\textbackslash{}tan}, ...
+		\item \textbf{Código}:
+		\begin{lstlisting}
+\begin{equation*}
+	\cos(0) = 1
+\end{equation*}
+		\end{lstlisting}
+		\item \textbf{Resultado}:
+		\begin{equation*}
+			\cos(0) = 1
+		\end{equation*}
+	\end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]\frametitle{Operadores Matemáticos en \LaTeX}
+	\begin{itemize}
+		\item \textbf{Categoría}: Potencias, Indices
+		\item \textbf{Operadores}: \texttt{\^}, \texttt{\_}
+		\item \textbf{Código}:
+		\begin{lstlisting}
+\begin{equation*}
+	k_{n+1}=n^{10}+k_n^2
+\end{equation*}
+		\end{lstlisting}
+		\item \textbf{Resultado}:
+		\begin{equation*}
+			k_{n+1}=n^{10}+k_n^2
+		\end{equation*}
+	\end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]\frametitle{Operadores Matemáticos en \LaTeX}
+	\begin{itemize}
+		\item \textbf{Categoría}: Fracciones
+		\item \textbf{Operadores}: \texttt{\textbackslash{}frac}
+		\item \textbf{Código}:
+		\begin{lstlisting}
+\begin{equation*}
+			\frac{n!}{k!(n-k)!}
+\end{equation*}
+		\end{lstlisting}
+		\item \textbf{Resultado}:
+		\begin{equation*}
+			\frac{n!}{k!(n-k)!}
+		\end{equation*}
+	\end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]\frametitle{Operadores Matemáticos en \LaTeX}
+	\begin{itemize}
+		\item \textbf{Categoría}: Raíces
+		\item \textbf{Operadores}: \texttt{\textbackslash{}sqrt}
+		\item \textbf{Código}:
+		\begin{lstlisting}
+\begin{equation*}
+	\sqrt[n]{1+x^2}
+\end{equation*}
+		\end{lstlisting}
+		\item \textbf{Resultado}:
+		\begin{equation*}
+			\sqrt[n]{1+x^2}
+		\end{equation*}
+	\end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]\frametitle{Operadores Matemáticos en \LaTeX}
+	\begin{itemize}
+		\item \textbf{Categoría}: Sumas
+		\item \textbf{Operadores}: \texttt{\textbackslash{}sum}
+		\item \textbf{Código}:
+		\begin{lstlisting}
+\begin{equation*}
+	\sum_{i=1}^{10} t_i
+\end{equation*}
+		\end{lstlisting}
+		\item \textbf{Resultado}:
+		\begin{equation*}
+			\sum_{i=1}^{10} t_i
+		\end{equation*}
+	\end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]\frametitle{Operadores Matemáticos en \LaTeX}
+	\begin{itemize}
+		\item \textbf{Categoría}: Integrales
+		\item \textbf{Operadores}: \texttt{\textbackslash{}int}
+		\item \textbf{Código}:
+		\begin{lstlisting}
+\begin{equation*}
+	\int_0^\infty \mathrm{e}^{-x}\,\mathrm{d}x
+\end{equation*}
+		\end{lstlisting}
+		\item \textbf{Resultado}:
+		\begin{equation*}
+			\int_0^\infty \mathrm{e}^{-x}\,\mathrm{d}x
+		\end{equation*}
+	\end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]\frametitle{Operadores Matemáticos en \LaTeX}
+	\begin{itemize}
+		\item \textbf{Categoría}: Corchetes, llaves y delimitadores
+		\item \textbf{Operadores}: \texttt{(, ), [, ], \{, \}, \textbackslash{}langle, \textbackslash{}rangle, \textbackslash{}lfloor, \textbackslash{}rfloor, \textbackslash{}lceil, \textbackslash{}rceil, \textbackslash{}ulcorner, \textbackslash{}urcorner}
+		\item \textbf{Código}:
+		\begin{lstlisting}
+\begin{equation*}
+	(\frac{x^2}{y^3}), \left(\frac{x^2}{y^3}\right), 
+	\frac{\mathrm d}{\mathrm d x} \big( k g(x) \big)
+\end{equation*}
+		\end{lstlisting}
+		\item \textbf{Resultado}:
+		\begin{equation*}
+			(\frac{x^2}{y^3}), \left(\frac{x^2}{y^3}\right),
+			\frac{\mathrm d}{\mathrm d x} \big( k g(x) \big)
+		\end{equation*}
+	\end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]\frametitle{Operadores Matemáticos en \LaTeX}
+	\begin{columns}
+		\begin{column}{0.39\textwidth}
+			\begin{itemize}
+				\item \textbf{Categoría}: Matrices y arreglos
+				\item \textbf{Entornos}: \texttt{matrix, pmatrix, bmatrix, Bmatrix, vmatrix, Vmatrix}.
+				\item \textbf{Resultado}:
+				\begin{equation*}
+					A_{m,n} = 
+					\begin{pmatrix}
+						a_{1,1} & a_{1,2} & \cdots & a_{1,n}\\
+						a_{2,1} & a_{2,2} & \cdots & a_{2,n}\\
+						\vdots  & \vdots  & \ddots & \vdots \\
+						a_{m,1} & a_{m,2} & \cdots & a_{m,n} 
+					\end{pmatrix}
+				\end{equation*}
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.61\textwidth}
+			\begin{itemize}
+				\item \textbf{Código}:
+				\begin{lstlisting}
+\begin{equation*}
+	A_{m,n} = 
+	\begin{pmatrix}
+		a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+		a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+		\vdots  & \vdots  & \ddots & \vdots  \\
+		a_{m,1} & a_{m,2} & \cdots & a_{m,n} 
+	\end{pmatrix}
+\end{equation*}
+				\end{lstlisting}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
 
+\begin{frame}[t]\frametitle{Ejercicio 4}
+	\begin{itemize}
+		\item Usando el artículo desarrollado en el ejercicio 3, agrega al menos una lista, una tabla, una figura, una nota al pie de página y una expresión matemática.
+	\end{itemize}
+\end{frame}
 
+\begin{frame}[t]\frametitle{Quiero Usar \LaTeX. ¿Cómo empezar?}
+	\begin{itemize}
+		\item Documentación:
+		\begin{itemize}
+			\item \href{https://es.wikipedia.org/wiki/Ayuda:Uso_de_LaTeX}{Wikipedia: Uso de \LaTeX.}
+			\item \href{https://es.wikibooks.org/wiki/Manual_de_LaTeX}{WikiLibros: Manual de \LaTeX.}
+			\item \href{https://tex.stackexchange.com/}{\TeX\ Exchange: Preguntas y Respuestas de \LaTeX.}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
 
-
-
+\section{Plantillas de Ejemplo}
+\begin{frame}[t]\frametitle{Plantillas de Ejemplo}
+	\begin{itemize}
+		\item \href{https://github.com/gjbecerra/talleresUNAD/tree/main/latex/plantillas/presentacion}{Presentación}
+		\item \href{https://github.com/gjbecerra/talleresUNAD/tree/main/latex/plantillas/documento}{Documento}
+		\item \href{https://github.com/gjbecerra/talleresUNAD/tree/main/latex/plantillas/conferenciaIEEE}{Conferencia IEEE}
+		\item \href{https://github.com/gjbecerra/talleresUNAD/tree/main/latex/plantillas/transactionsIEEE}{Transactions IEEE}
+	\end{itemize}
+\end{frame}
 
 % Diapositiva final
 {\usebackgroundtemplate{
@@ -845,7 +1005,7 @@ $x^2 + y^2 = 1$
 	\begin{frame}
 		\vskip3.2cm
 		\centering
-		\LARGE\textcolor{myblue}{\textbf{¡GRACIAS!}}
+		\LARGE\textcolor{myblue}{\textbf{¡GRACIAS! ¿PREGUNTAS?}}
 	\end{frame}
 	
 }
